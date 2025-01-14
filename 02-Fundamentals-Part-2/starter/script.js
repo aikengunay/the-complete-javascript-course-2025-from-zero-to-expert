@@ -486,7 +486,7 @@ for (let rep = 1; rep <= 30; rep++) {
   console.log(`Lifting weights repetition ${rep}`);
 } */
 
-// 20 Looping arrays, continuing, and breaking
+/* // 20 Looping arrays, continuing, and breaking
 
 const jonasArray = [
   "Jonas",
@@ -494,7 +494,7 @@ const jonasArray = [
   2037 - 1991,
   "teacher",
   ["Michael", "Peter", "Steven"],
-];
+]; 
 
 const types = [];
 
@@ -536,3 +536,28 @@ for (let i = 0; i <= jonasArray.length; i++) {
 
   console.log(jonasArray[i], typeof jonasArray[i]);
 }
+  */
+
+/* // 21. Looping Backwards and Loops in Loops
+const jonas = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+  true,
+];
+
+// loop in reverse
+for (let i = jonas.length - 1; i >= 0; i--) {
+  console.log(i, jonas[i]);
+}
+
+// nested loop
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`------- Starting exercise ${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(` Exercise: ${exercise}; Lifting weights repetition ${rep} 🏋️‍♂️`);
+  }
+} */
