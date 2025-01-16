@@ -561,3 +561,33 @@ for (let exercise = 1; exercise < 4; exercise++) {
     console.log(` Exercise: ${exercise}; Lifting weights repetition ${rep} 🏋️‍♂️`);
   }
 } */
+
+// 21. While Loop
+
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep} 🏋️‍♂️`);
+}
+
+let rep = 1;
+// while this condition holds true
+while (rep <= 10) {
+  // print out the text
+  // console.log(`WHILE: Lifting weights repetition ${rep} 🏋️‍♂️`);
+  rep++;
+}
+
+// dice roller
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+// while does not need to depend a counter variable
+// use a while loop when you dont need a counter
+while (dice != 6) {
+  console.log(`You rolled a dice ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  //  if dice is 6, end loop
+  if (dice === 6) {
+    console.log("Loop is about to end...");
+  }
+
+  //use a for loop if you know how many iterations you need. when we want to loop an array it has, we know how many iterations it need.
+}
