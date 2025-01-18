@@ -1,7 +1,7 @@
 // Remember, we're gonna use strict mode in all scripts now!
 'use strict';
 
-// 7. Using Google, StackOverflow and MDN
+/* // 7. Using Google, StackOverflow and MDN
 
 // PROBLEM:
 // We work for a company building a smart home thermometer. Our most recent task is this: "Given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error."
@@ -84,4 +84,69 @@ const calcTempAplitudeNew = function (t1, t2) {
   return max - min;
 };
 const amplitudeNew = calcTempAplitudeNew([3, 5, 1], [9, 0, 5]);
+console.log(amplitudeNew); */
+
+// 009 Debugging with the Console and Breakpoints
+
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'cels',
+    //  C. FIXME Wrap this to a number method
+    value: Number(prompt('Degrees celsius')),
+  };
+  // FIND THE BUG
+  // BUG: the prompt is taking up string values
+  console.log(measurement);
+  console.table(measurement);
+  // console.log(measurement.value);
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+
+//  A. identiy the bug
+// BUG: Kelvin is not being converted
+// console.log(measureKelvin());
+
+//=======================
+// Using a debugger
+const calcTempAplitudeNew = function (t1, t2) {
+  // merge t1 and t2 arrays and store it in a new array
+  const temps = t1.concat(t2);
+
+  let max = 0;
+  // FIND THE BUG
+  // This is not set to the index
+  // C. FIXME
+  // set the the value to temp[0]
+  let min = 0;
+
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i];
+    // if the type of the current temperature is not a numner
+    if (typeof curTemp !== 'number') {
+      // go to the next index and compare it again
+      continue;
+    }
+    // This is how you instantly run the debugger in your live server without clicking a breakpoint manually
+    debugger;
+    // if the current temperature is greater than the maximum value stored in max,
+    if (curTemp > max) {
+      // then set the current temperature to the max variable
+      max = curTemp;
+    }
+    if (curTemp < min) {
+      min = curTemp;
+    }
+  }
+  console.log(max, min);
+  return max - min;
+};
+const amplitudeNew = calcTempAplitudeNew([3, 5, 1], [9, 4, 5]);
+
+// A. Identify the BUG
+// this is where the bug happends
+// the amplitude is not correct
 console.log(amplitudeNew);
