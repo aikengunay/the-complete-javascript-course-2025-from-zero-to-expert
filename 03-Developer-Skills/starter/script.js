@@ -86,7 +86,7 @@ const calcTempAplitudeNew = function (t1, t2) {
 const amplitudeNew = calcTempAplitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew); */
 
-// 009 Debugging with the Console and Breakpoints
+/* // 009 Debugging with the Console and Breakpoints
 
 const measureKelvin = function () {
   const measurement = {
@@ -149,4 +149,52 @@ const amplitudeNew = calcTempAplitudeNew([3, 5, 1], [9, 4, 5]);
 // A. Identify the BUG
 // this is where the bug happends
 // the amplitude is not correct
-console.log(amplitudeNew);
+console.log(amplitudeNew); */
+
+// 10 Coding Challenge
+/* 
+Given an array of forecasted maximum temperatures, the thermometer displays a string with the given temperatures. Example: [17, 21, 23] will print "... 17ºC in 1 days ... 21ºC in 2 days ... 23ºC in 3 days ..." 
+
+Your tasks:
+1. Create a function 'printForecast' which takes in an array 'arr' and logs a string like the above to the console. Try it with both test datasets.
+2. Use the problem-solving framework: Understand the problem and break it up
+into sub-problems!
+
+Test data:
+- Data 1: [17, 21, 23]
+- Data 2: [12, 5, -5, 0, 4]
+
+*/
+
+// 1) Understanding the problem
+// What is forecasted maximum Temperature?
+// What does the printforecast method take in?
+// A array of strings with values of temperatures
+// What will the method output
+// Print the string of arrays 1 by one to output "... 17ºC in 1 days ... 21ºC in 2 days ... 23ºC in 3 days ..."
+// So using for loop or for each to print every temperature and printing the index as days
+// How do you print them one by one
+
+// 2) Breaking up into sub-problems (Task)
+// Iterate through the array of strings and print the temperature
+// print the index as number of days + 1
+
+// 3) Research
+
+// for (var i = 0; i < fruits.length; i++) {
+//   console.log(fruits[i]);
+// }
+
+const dataSet1 = [17, 21, 23];
+const dataSet2 = [12, 5, -5, 0, 4];
+
+const printForecast = function (arr) {
+  // store the message in a single string
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str = str + `${arr[i]}ºC in ${i + 1} days... `;
+  }
+  console.log('...' + str);
+};
+printForecast(dataSet1);
+// 4) Write Pesudo-code
