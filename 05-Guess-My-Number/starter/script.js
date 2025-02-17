@@ -20,6 +20,14 @@ document.querySelector('.guess').value = 50;
 // display the value of guess input
 console.log(document.querySelector('.guess').value); */
 
+// random generate a number from 1 to 20
+const secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+// score or health
+let score = 20;
+// set the random number here
+document.querySelector('.number').textContent = secretNumber;
+
 // select the button element
 document.querySelector('.check').addEventListener('click', function () {
   // handle execution when button is clicked
@@ -30,5 +38,31 @@ document.querySelector('.check').addEventListener('click', function () {
   if (!guess) {
     // print a message
     document.querySelector('.message').textContent = '⛔️ No Number';
+  } else if (guess === secretNumber) {
+    document.querySelector('.message').textContent = '🎉 Correct Number';
+  } else if (guess > secretNumber) {
+    if (score > 1) {
+      document.querySelector('.message').textContent = '📈 Too high!';
+      // decrease score
+      score = score - 1;
+      // set new score that was deducted
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = '🔥 You lose the game!';
+      score = 0;
+      document.querySelector('.score').textContent = score;
+    }
+  } else if (guess < secretNumber) {
+    if (score > 1) {
+      document.querySelector('.message').textContent = '📉 Too low!';
+      // decrease score
+      score = score - 1;
+      // set new score that was deducted
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = '🔥 You lose the game!';
+      score = 0;
+      document.querySelector('.score').textContent = score;
+    }
   }
 });
