@@ -35,11 +35,23 @@ document.querySelector('.check').addEventListener('click', function () {
   console.log(guess, typeof guess);
 
   // if user does not input a guess or 0
+  // When there is no input
   if (!guess) {
     // print a message
     document.querySelector('.message').textContent = '⛔️ No Number';
+
+    // When player wins
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number';
+
+    // change the body color to green
+    // use camelcases if there are more than one word
+    document.querySelector('body').style.backgroundColor = '#60b347';
+
+    // increase the width of the number container
+    document.querySelector('.number').style.width = '30rem';
+
+    // guess is too low
   } else if (guess > secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = '📈 Too high!';
@@ -52,6 +64,8 @@ document.querySelector('.check').addEventListener('click', function () {
       score = 0;
       document.querySelector('.score').textContent = score;
     }
+
+    // Guess is low
   } else if (guess < secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = '📉 Too low!';
